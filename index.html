@@ -103,6 +103,7 @@ body{font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:
 .remix-word{color:var(--teal);font-weight:800;font-style:normal}
 /* ── UTIL ── */
 .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.anchor-target{display:block;position:relative;top:-80px;height:1px;visibility:hidden}
 .gt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);padding:4px 12px;border:1px solid var(--bdr);border-radius:100px;background:var(--teal2);margin-bottom:18px}
 .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
@@ -526,6 +527,10 @@ footer{background:var(--bg1);border-top:1px solid var(--bdr2);padding:60px 0 28p
   <a href="#blockchain-explorer" onclick="closeMob()" class="mobile-subitem">Explorer</a>
   <a href="#blockchain-docs" onclick="closeMob()" class="mobile-subitem">Docs</a>
   <a href="#token" onclick="closeMob()" class="mobile-subitem">$BS</a>
+  <a href="#roadmap" onclick="closeMob()">Roadmap</a>
+  <a href="#creator" onclick="closeMob()">Creator</a>
+  <a href="#demo" onclick="closeMob()">Launch App</a>
+</div>
 <div class="ticker">
   <div class="ttrack" id="tt">
     <div class="ti">$BS <b id="tkP">0.0842</b> <span class="up" id="tkC">+3.21%</span></div>
@@ -745,6 +750,8 @@ footer{background:var(--bg1);border-top:1px solid var(--bdr2);padding:60px 0 28p
 
 <!-- BLOCKCHAIN -->
 <section id="blockchain">
+  <div id="blockchain-explorer" class="anchor-target"></div>
+  <div id="blockchain-docs" class="anchor-target"></div>
   <div class="wrap">
     <div class="bci">
       <div class="rv">
