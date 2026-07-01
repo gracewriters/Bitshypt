@@ -117,11 +117,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;al
 .nlogo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:20px;font-weight:800;text-decoration:none;color:var(--text)}
 .nlogobox{width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 16px var(--teal3)}
 .nlinks{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nlinks li{list-style:none;margin-right:10px}
 .nlinks a{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--nav-link);padding:6px 14px;border-radius:6px;text-decoration:none;transition:color var(--ease),background var(--ease)}
 .nlinks a:hover{color:var(--teal);background:var(--teal2)}
 .has-dropdown{position:relative}
-.dropbtn{background:none;border:none;color:var(--nav-link);padding:6px 14px;cursor:pointer;font-family:var(--mono);font-size:10px;text-transform:uppercase;border-radius:6px}
-.dropbtn:after{content:' ▾';margin-left:6px}
+.dropbtn{background:none;border:none;color:var(--nav-link);padding:6px 14px;cursor:pointer;font-family:var(--mono);font-size:10px;text-transform:uppercase;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+.dropbtn:after{content:''}
+.dicon{width:14px;height:14px;display:inline-block;vertical-align:middle;fill:currentColor}
 .dropdown{position:absolute;top:44px;left:0;background:var(--card);border:1px solid var(--bdr);border-radius:8px;min-width:180px;padding:8px;display:none;box-shadow:0 10px 30px rgba(0,0,0,.12)}
 .dropdown.open{display:block}
 .dropdown li{list-style:none}
@@ -471,14 +473,18 @@ footer{background:var(--bg1);border-top:1px solid var(--bdr2);padding:60px 0 28p
     <li><a href="#how">How It Works</a></li>
     <li><a href="#features">Features</a></li>
     <li class="has-dropdown">
-      <button class="dropbtn" aria-expanded="false" aria-haspopup="true">Blockchain</button>
+      <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+        <svg class="dicon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L15 8l6 .5-4.5 3.6L18 20l-6-4-6 4 .5-7.9L2 8.5 8 8z"/></svg>
+        Blockchain
+      </button>
       <ul class="dropdown" role="menu" aria-label="Blockchain submenu">
         <li role="none"><a role="menuitem" href="#blockchain">Overview</a></li>
         <li role="none"><a role="menuitem" href="#blockchain-explorer">Explorer</a></li>
         <li role="none"><a role="menuitem" href="#blockchain-docs">Docs</a></li>
+        <li role="separator" style="height:8px"></li>
+        <li role="none"><a role="menuitem" href="#token">$BS</a></li>
       </ul>
     </li>
-    <li><a href="#token">$BS</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="bitshypt_whitepaper.html" target="_blank">Whitepaper</a></li>
     <li><a href="#creator">Creator</a></li>
