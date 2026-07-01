@@ -132,10 +132,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;al
 .nlinks a{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--nav-link);padding:6px 14px;border-radius:6px;text-decoration:none;transition:color var(--ease),background var(--ease)}
 .nlinks a:hover{color:var(--teal);background:var(--teal2)}
 .has-dropdown{position:relative}
-.dropbtn{background:none;border:none;color:var(--nav-link);padding:6px 14px;cursor:pointer;font-family:var(--mono);font-size:10px;text-transform:uppercase;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
-.dropbtn:after{content:''}
+.dropbtn{background:rgba(255,255,255,.03);border:1px solid transparent;color:var(--nav-link);padding:8px 16px;cursor:pointer;font-family:var(--mono);font-size:10px;text-transform:uppercase;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:background .2s,border .2s,color .2s}
+.dropbtn:hover,.dropbtn[aria-expanded="true"]{background:var(--bg2);border-color:var(--bdr2);color:var(--teal)}
+.dropbtn:after{content:'▾';font-size:10px;margin-left:4px;display:inline-block;transform:translateY(-1px)}
 .dicon{width:14px;height:14px;display:inline-block;vertical-align:middle;fill:currentColor}
-.dropdown{position:absolute;top:44px;left:0;background:var(--card);border:1px solid var(--bdr);border-radius:8px;min-width:180px;padding:8px;display:none;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.dropdown{position:absolute;top:46px;left:0;background:var(--card);border:1px solid var(--bdr2);border-radius:14px;min-width:220px;padding:10px;display:none;box-shadow:0 20px 40px rgba(0,0,0,.18);z-index:1001}
+.dropdown.open{display:block}
+.dropdown li{list-style:none}
+.dropdown a{display:block;padding:10px 14px;color:var(--text);text-decoration:none;border-radius:8px;transition:background .2s,color .2s}
+.dropdown a:hover{background:var(--bg2);color:var(--teal)}
 .dropdown.open{display:block}
 .dropdown li{list-style:none}
 .dropdown a{display:block;padding:8px 12px;color:var(--text);text-decoration:none;border-radius:6px}
@@ -159,6 +164,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;al
 .mnav.open{display:flex}
 .mnav a{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);padding:10px 0;border-bottom:1px solid var(--bdr2);text-decoration:none;transition:color var(--ease)}
 .mnav a:hover{color:var(--teal)}
+.mnav a.mobile-subitem{padding-left:24px;font-size:9px;letter-spacing:.3px;opacity:.85}
+.mnav a.mobile-subitem:hover{color:var(--teal)}
 
 /* ── TICKER ── */
 .ticker{background:var(--bg1);border-bottom:1px solid var(--bdr2);height:36px;overflow:hidden;display:flex;align-items:center;margin-top:64px}
@@ -515,13 +522,10 @@ footer{background:var(--bg1);border-top:1px solid var(--bdr2);padding:60px 0 28p
   <a href="#compliance" onclick="closeMob()">VLOS</a>
   <a href="#scan" onclick="closeMob()">Safety</a>
   <a href="#blockchain" onclick="closeMob()">Blockchain</a>
-  <a href="#token" onclick="closeMob()">$BS</a>
-  <a href="#roadmap" onclick="closeMob()">Roadmap</a>
-  <a href="#creator" onclick="closeMob()">Creator</a>
-  <a href="#demo" onclick="closeMob()">Launch App</a>
-</div>
-
-<!-- TICKER -->
+  <a href="#blockchain" onclick="closeMob()" class="mobile-subitem">Overview</a>
+  <a href="#blockchain-explorer" onclick="closeMob()" class="mobile-subitem">Explorer</a>
+  <a href="#blockchain-docs" onclick="closeMob()" class="mobile-subitem">Docs</a>
+  <a href="#token" onclick="closeMob()" class="mobile-subitem">$BS</a>
 <div class="ticker">
   <div class="ttrack" id="tt">
     <div class="ti">$BS <b id="tkP">0.0842</b> <span class="up" id="tkC">+3.21%</span></div>
@@ -1390,8 +1394,25 @@ tb.onclick = () => {
 // ── BURGER ──
 const burger = document.getElementById('burger');
 const mnav = document.getElementById('mnav');
+const dropdownBtn = document.querySelector('.has-dropdown .dropbtn');
+const dropdownMenu = document.querySelector('.has-dropdown .dropdown');
+
 burger.onclick = () => { burger.classList.toggle('open'); mnav.classList.toggle('open'); };
 function closeMob() { burger.classList.remove('open'); mnav.classList.remove('open'); }
+
+dropdownBtn && dropdownBtn.addEventListener('click', (event) => {
+  event.stopPropagation();
+  const isOpen = dropdownMenu.classList.toggle('open');
+  dropdownBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', (event) => {
+  if (!dropdownBtn || !dropdownMenu) return;
+  if (dropdownMenu.classList.contains('open') && !dropdownBtn.contains(event.target)) {
+    dropdownMenu.classList.remove('open');
+    dropdownBtn.setAttribute('aria-expanded', 'false');
+  }
+});
 
 // ── SCROLL REVEAL ──
 const rvEls = document.querySelectorAll('.rv,.rv2,.rv3,.rv4');
