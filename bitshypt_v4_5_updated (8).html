@@ -12,42 +12,30 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden;transition:background .4s,color .4s;color:var(--text)}
 
-:root{
-  --teal:#00C9AC;--teal2:rgba(0,201,172,.12);--teal3:rgba(0,201,172,.3);
-  --blue:#0B84FF;--blue2:rgba(11,132,255,.1);
-  --grad:linear-gradient(135deg,#00C9AC,#0B84FF);
-  --mono:'Space Mono',monospace;--display:'Syne',sans-serif;--body:'DM Sans',sans-serif;
-  --r:12px;--r2:20px;--ease:.25s cubic-bezier(.4,0,.2,1);
-}
-[data-theme="dark"]{
-  --bg:#050c10;--bg1:#081318;--bg2:#0a1820;--bg3:#0d1f2a;
-  --text:#f0f9ff;--text2:#b8e0f0;--text3:#90c8dc;
-  --nav-link:#a8d8ea;--footer-text:#a8d8ea;
-  --bdr:rgba(0,201,172,.13);--bdr2:rgba(0,201,172,.05);
-  --card:rgba(8,24,35,.9);--nav:rgba(5,12,16,.88);--sh:0 4px 40px rgba(0,0,0,.5);
-}
-[data-theme="light"]{
-  --bg:#f4f9fc;--bg1:#e8f3f8;--bg2:#daedf5;--bg3:#cce6f0;
-  --text:#091e2a;--text2:#1a4d63;--text3:#2e6b85;
-  --nav-link:#0a2533;--footer-text:#1a4d63;
-  --bdr:rgba(0,140,120,.2);--bdr2:rgba(0,140,120,.08);
-  --card:rgba(255,255,255,.92);--nav:rgba(244,249,252,.95);--sh:0 4px 40px rgba(0,80,100,.12);
-}
-
-/* ── LIGHT MODE EXPLICIT OVERRIDES ── */
-[data-theme="light"] .sh{color:var(--text)}
-[data-theme="light"] .sh2{color:var(--text)}
-[data-theme="light"] .fh{color:var(--text)}
-[data-theme="light"] .cfh{color:var(--text)}
-[data-theme="light"] .tch{color:var(--text)}
-[data-theme="light"] .dch{color:var(--text)}
-[data-theme="light"] .rmph{color:var(--text)}
-[data-theme="light"] .fp{color:var(--text2)}
-[data-theme="light"] .tcp{color:var(--text2)}
-[data-theme="light"] .cfp{color:var(--text2)}
-[data-theme="light"] .sp{color:var(--text2)}
-[data-theme="light"] .sp2{color:var(--text2)}
-[data-theme="light"] .sn{color:var(--text)}
+  </a>
+  <ul class="nlinks" role="navigation" aria-label="Primary">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#blockchain">Blockchain</a></li>
+    <li><a href="#token">$BS</a></li>
+    <li><a href="#demo">Launch</a></li>
+  </ul>
+  <div class="nright">
+    <a class="nbtn" href="bitshypt_whitepaper.html" target="_blank" style="margin-right:8px">Whitepaper</a>
+    <a class="nbtn" href="bitshypt_app_demo_updated.html" download style="background:var(--blue);border-color:var(--blue);margin-right:8px">⬇ Download</a>
+    <button class="nbtn" id="walletBtn" onclick="connectWallet()" style="background:transparent;border:1px solid var(--teal);color:var(--teal);margin-right:8px">Connect Wallet</button>
+    <button class="tbtn" id="themeBtn" aria-label="Toggle theme" style="margin-right:6px"></button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="#how" onclick="closeMob()">How It Works</a>
+  <a href="#features" onclick="closeMob()">Features</a>
+  <a href="#blockchain" onclick="closeMob()">Blockchain</a>
+  <a href="#token" onclick="closeMob()">$BS</a>
+  <a href="#demo" onclick="closeMob()">Launch</a>
+  <a href="bitshypt_whitepaper.html" target="_blank" onclick="closeMob()">Whitepaper</a>
+</div>
 [data-theme="light"] .sl{color:var(--text2)}
 [data-theme="light"] .hkick{color:var(--text2)}
 [data-theme="light"] .hsub{color:var(--text2)}
