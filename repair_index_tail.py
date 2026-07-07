@@ -30,13 +30,6 @@ replacement = """    ]
 
       <section style={{ padding: '40px 24px', background: 'rgba(2, 10, 13, 0.98)', color: 'var(--text)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gap: 24, marginBottom: 36 }}>
-            <div style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800 }}>Live Supabase-backed dashboard</div>
-            <p style={{ color: 'var(--text2)', maxWidth: 760, lineHeight: 1.8 }}>
-              This preview loads the real Supabase data for stats, telemetry, recent blockchain delivery blocks, and sample marketplace rows.
-            </p>
-          </div>
-
           <div style={{ display: 'grid', gap: 18, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
             <div style={{ padding: 24, borderRadius: 24, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <div style={{ color: 'var(--text3)', fontSize: 12, textTransform: 'uppercase', letterSpacing: 1.3 }}>Packages Delivered</div>
