@@ -625,11 +625,11 @@ const Home: NextPage<HomeProps> = ({ bodyHtml, pageStyles }) => {
     }
 
     if (id === 'tkBl') {
-      return <b id="tkBl">{tickerState.block.toLocaleString()}</b>;
+      return <b id="tkBl" suppressHydrationWarning>{tickerState.block.toLocaleString()}</b>;
     }
 
     if (id === 'tkD') {
-      return <b id="tkD">{tickerState.deliveries.toLocaleString()}</b>;
+      return <b id="tkD" suppressHydrationWarning>{tickerState.deliveries.toLocaleString()}</b>;
     }
 
     if (id === 'hA' || id === 'vA') {
