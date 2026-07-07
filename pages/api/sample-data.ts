@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     .order('id', { ascending: true });
 
   if (error) {
-    console.warn('Supabase sample_data fetch failed:', error.message);
+    console.error('Supabase sample_data fetch failed:', error.message, error.code, error.details);
     return res.status(200).json(DEFAULT_SAMPLE_DATA);
   }
 

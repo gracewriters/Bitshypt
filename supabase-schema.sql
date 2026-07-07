@@ -25,12 +25,12 @@ CREATE TABLE telemetry (
   speed NUMERIC(5,1),
   battery INTEGER,
   vlos VARCHAR(10),
-  hash VARCHAR(255),
+  zk_proof VARCHAR(255),
   recorded_at TIMESTAMP DEFAULT NOW()
 );
 
 -- Insert sample telemetry data
-INSERT INTO telemetry (alt, speed, battery, vlos, hash)
+INSERT INTO telemetry (alt, speed, battery, vlos, zk_proof)
 VALUES 
   (118, 24.3, 78, 'OK', '0xa4f9…3b21'),
   (125, 22.5, 72, 'OK', '0xb2e3…7d8e'),
@@ -41,17 +41,18 @@ DROP TABLE IF EXISTS blocks CASCADE;
 CREATE TABLE blocks (
   block_number BIGINT PRIMARY KEY,
   block_hash VARCHAR(255),
-  pod_hash VARCHAR(255),
+  zk_proof VARCHAR(255),
+  anchored_at TIMESTAMP,
   status VARCHAR(50),
   created_at TIMESTAMP DEFAULT NOW()
 );
 
 -- Insert sample blocks
-INSERT INTO blocks (block_number, block_hash, pod_hash, status)
+INSERT INTO blocks (block_number, block_hash, zk_proof, status, anchored_at)
 VALUES 
-  (1204817, '00000a4f9b2e3c…7d8e12f3', 'a4f9b2e3c71d…0x3b21', 'DELIVERED'),
-  (1204816, '00000f8c2a1b4e…9c3d05a1', 'f8c2a1b4e69f…0x9a04', 'IN_TRANSIT'),
-  (1204815, '00000b3e7f2c9d…2a4e18b7', 'b3e7f2c9d48a…0x71cc', 'ACCEPTED');
+  (1204817, '00000a4f9b2e3c…7d8e12f3', 'a4f9b2e3c71d…0x3b21', 'DELIVERED', NOW()),
+  (1204816, '00000f8c2a1b4e…9c3d05a1', 'f8c2a1b4e69f…0x9a04', 'IN_TRANSIT', NOW()),
+  (1204815, '00000b3e7f2c9d…2a4e18b7', 'b3e7f2c9d48a…0x71cc', 'ACCEPTED', NOW());
 
 -- 4. Sample data table (marketplace items)
 DROP TABLE IF EXISTS sample_data CASCADE;

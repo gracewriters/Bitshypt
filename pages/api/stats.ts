@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     .single();
 
   if (error) {
-    console.warn('Supabase stats fetch failed:', error.message);
+    console.error('Supabase stats fetch failed:', error.message, error.code, error.details);
     return res.status(200).json(DEFAULT_STATS);
   }
 

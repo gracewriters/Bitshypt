@@ -23,7 +23,7 @@ replacement = """    ]
         <title>BitShypt — Decentralized Drone Delivery on the Blockchain</title>
         <meta
           name=\"description\"
-          content=\"The world's first decentralized drone delivery platform. Blockchain Proof-of-Delivery, real-time VLOS enforcement, and cryptographic escrow.\"
+           content=\"The world's first decentralized drone delivery platform. Blockchain ZK-Proof anchoring, real-time VLOS enforcement, and cryptographic escrow.\"
         />
         <style dangerouslySetInnerHTML={{ __html: pageStyles }} />
       </Head>
@@ -44,7 +44,7 @@ replacement = """    ]
               <div style={{ fontFamily: 'var(--display)', fontSize: '2rem', fontWeight: 800, marginTop: 10 }}>{loading.stats ? 'Loading…' : stats ? f"{stats.vlos_compliance:.2f}%" : '—'}</div>
             </div>
             <div style={{ padding: 24, borderRadius: 24, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ color: 'var(--text3)', fontSize: 12, textTransform: 'uppercase', letterSpacing: 1.3 }}>Avg Proof-of-Delivery</div>
+              <div style={{ color: 'var(--text3)', fontSize: 12, textTransform: 'uppercase', letterSpacing: 1.3 }}>Avg ZK-Proof Time</div>
               <div style={{ fontFamily: 'var(--display)', fontSize: '2rem', fontWeight: 800, marginTop: 10 }}>{loading.stats ? 'Loading…' : stats ? f"{stats.avg_proof_of_delivery:.1f}s" : '—'}</div>
             </div>
           </div>
@@ -57,7 +57,7 @@ replacement = """    ]
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text3)' }}>Speed</span><span>{loading.telemetry ? 'Loading…' : f"{telemetry.speed:.1f} m/s" if telemetry else '—'}</span></div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text3)' }}>Battery</span><span>{loading.telemetry ? 'Loading…' : f"{telemetry.battery}%" if telemetry else '—'}</span></div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text3)' }}>VLOS Status</span><span style={{ color: 'var(--teal)' if telemetry and telemetry.vlos == 'OK' else 'var(--blue)' }}>{loading.telemetry ? 'Loading…' : telemetry.vlos if telemetry else '—'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text3)' }}>Last Proof Hash</span><span style={{ fontFamily: 'var(--mono)' }}>{loading.telemetry ? 'Loading…' : telemetry.hash if telemetry else '—'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text3)' }}>Last ZK Proof</span><span style={{ fontFamily: 'var(--mono)' }}>{loading.telemetry ? 'Loading…' : telemetry.zk_proof if telemetry else '—'}</span></div>
               </div>
             </div>
 
@@ -75,7 +75,7 @@ replacement = """    ]
                       </div>
                       <div style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6 }}>
                         <div><strong>Hash:</strong> {block.block_hash}</div>
-                        <div><strong>PoD:</strong> {block.pod_hash}</div>
+                        <div><strong>ZK Proof:</strong> {block.zk_proof}</div>
                       </div>
                     </div>
                   ))
