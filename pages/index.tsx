@@ -735,15 +735,6 @@ const Home: NextPage<HomeProps> = ({ bodyHtml, pageStyles }) => {
 
       <section className="db-backend-section" style={{ padding: '52px 24px 32px', color: 'var(--text)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gap: '28px' }}>
-          <div>
-            <div style={{ fontFamily: 'var(--display)', fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 800, marginBottom: '10px', lineHeight: 1.05 }}>
-              Live Supabase-backed dashboard
-            </div>
-            <p style={{ color: 'var(--text2)', maxWidth: 760, lineHeight: 1.8, fontSize: '0.98rem' }}>
-              This preview loads the real Supabase data for stats, telemetry, recent blockchain delivery blocks, and sample marketplace rows.
-            </p>
-          </div>
-
           <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
             <div className="db-card" style={{ padding: '24px' }}>
               <div className="db-label">Packages Delivered</div>
