@@ -5,6 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en" data-theme="dark">
         <Head>
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
