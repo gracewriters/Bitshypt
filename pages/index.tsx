@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import React, { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import parse, { domToReact } from 'html-react-parser';
@@ -689,6 +689,16 @@ const Home: NextPage<HomeProps> = ({ bodyHtml, pageStyles }) => {
         <div id="demoCamStatus" className={className} style={{ position: 'absolute', top: 8, right: 8, fontFamily: 'var(--mono)', fontSize: 9, color: '#4a7a8a', background: 'rgba(2,10,13,.9)', padding: '3px 8px', borderRadius: 4, border: '1px solid rgba(0,201,172,.1)' }}>
           ● OFFLINE
         </div>
+      );
+    }
+
+    // Default fallback: strip onclick attributes to prevent React warnings
+    if (domNode.type === 'tag') {
+      const { onclick, ...safeAttribs } = attribs;
+      return React.createElement(
+        domNode.name,
+        { ...safeAttribs, className: className || safeAttribs.className },
+        children
       );
     }
 
