@@ -692,16 +692,7 @@ const Home: NextPage<HomeProps> = ({ bodyHtml, pageStyles }) => {
       );
     }
 
-    // Default fallback: strip onclick attributes to prevent React warnings
-    if (domNode.type === 'tag') {
-      const { onclick, ...safeAttribs } = attribs;
-      return React.createElement(
-        domNode.name,
-        { ...safeAttribs, className: className || safeAttribs.className },
-        children
-      );
-    }
-
+    // Default fallback: return undefined to let parser handle it
     return undefined;
   };
 
